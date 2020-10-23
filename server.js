@@ -29,8 +29,8 @@ app.get("/api/notes", function (req, res) {
   console.log(existingNotes);
 
   // var varName = arrayName.filter(newVariableName => thing that needs to be true or false)
-  const chosenNote = notes.filter(noteObj => noteObj.title === chosen)
-  console.log(chosenChar[0]);
+  // const chosenNote = notes.filter(noteObj => noteObj.title === chosen)
+  // console.log(chosenChar[0]);
 
   res.end();
 });
