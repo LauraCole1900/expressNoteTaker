@@ -2,6 +2,7 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
+const uuid = require("uuid");
 const app = express();
 const index = require("./assets/js/index.js") // possibly?
 
@@ -22,8 +23,8 @@ app.get("/", function(req, res) {
 });
 
 
-app.get("/api/notes", function (req, res) {
-  var existingNotes = req.params.note;
+app.get("/api/notes/:id", function (req, res) {
+  const id = req.params.id;
 
   // What does this log?
   console.log(existingNotes);
@@ -36,6 +37,19 @@ app.get("/api/notes", function (req, res) {
 });
 
 
+app.post("/api/notes", function (req, res) {
+
+});
+
+
+app.put("/:id", function (req, res) {
+  
+});
+
+
+app.delete("/api/notes/:id", function (req, res) {
+  console.log(req.params.id)
+});
 
 
 // Listener
