@@ -1,1 +1,69 @@
-# expressNoteTaker
+# Note Taker
+
+  ## Table of Contents
+
+  * [Description](#description)
+  * [Links](#links)
+  * [Screenshots](#screenshots)
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [Technologies Used](#technologies)
+  * [Tests](#tests)
+  * [Credits](#credits)
+  * [Contributing](#contributing)
+  * [Questions](#questions)
+  * [License](#license)
+
+  ## Description
+
+  This application uses the Express library of Node.js to save, retrieve and delete notes entered by the user. The user begins by clicking the button on the landing page, which takes them to a page on which they can enter notes, save them, and view and/or delete previously-entered notes. To enter a note, the user should first click on the area of the "Note Title" and give their note a title, then click on the "Note Text" area to enter the text of their note. Once a title and text are entered, a "Save" icon appears in the upper right corner of the window, on which the user should click to save their note. Previously-entered notes appear on the left side of the screen, along with a trash can icon on which the user can click to delete the associated note. To view a previously-entered note without deleting it, the user should click on that note's title. If a previously-entered note is showing and the user wants to enter a new note, they should click on the pencil icon in the upper right corner.
+
+  ## Links
+
+  [Deployed application on Heroku](https://glacial-inlet-91410.herokuapp.com/)
+
+  ## Screenshots
+
+  Landing page:
+  ![Landing page:](public/assets/landing-page-screenshot.png)
+
+  Notes page with previously-entered notes on the left:
+  ![Notes page, showing previous notes on the left](public/assets/notes-page-with-notes-screenshot.png)
+
+  Notes page with previously-entered note selected:
+  ![Notes page with a previously-entered note selected](public/assets/notes-page-previous-note-screenshot.png)
+
+  Notes page with new note, showing "Save" icon in upper-right corner:
+  ![Notes page with a new note, showing "Save" icon](public/assets/notes-page-new-note-screenshot.png)
+
+  ## Installation Instructions
+
+  npm i
+
+  ## Usage
+
+  This project is intended to be used for note-taking and -saving.
+
+  ## Technologies Used
+
+  Node.js, Express
+
+  ## Tests
+
+  npm run test
+
+  ## Credits
+
+  Base code and front-end functionality developed and provided by Trinity Education Services
+
+  ## Contributing
+
+  N/A
+
+  ## Questions
+
+  If you have further questions, you can reach me at lauracole1900@comcast.net. For more of my work, see [my GitHub](https://github.com/LauraCole1900).
+
+  ## License
+
+  ![License badge](https://img.shields.io/badge/license-MIT-brightgreen).
