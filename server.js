@@ -38,8 +38,8 @@ app.get("/notes", function (req, res) {
 // return notes from db.json as JSON
 app.get("/api/notes/", function (req, res) {
   readFileAsync("./db/db.json", "utf8").then(data => {
-    JSON.parse(data);
-    res.json(data);
+    const parsedData = JSON.parse(data);
+    res.json(parsedData);
     res.end();
   });
 });
@@ -54,7 +54,7 @@ app.post("/api/notes", function (req, res) {
   const { title, text } = req.body;
   const newNote = { title, text, id: uuidv1() }
   noteData.push(newNote);
-  res.send(noteData);
+  res.json(noteData);
   writeFileAsync("./db/db.json", JSON.stringify(noteData), function (err) {
     res.end();
   });
