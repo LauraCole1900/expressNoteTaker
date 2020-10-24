@@ -70,8 +70,9 @@ app.delete("/api/notes/:id", function (req, res) {
   const newNoteData = req.body
   const remainingNotes = notes.filter(noteObj => noteObj.id !== deletedNoteId)
   remainingNotes.push(newNoteData)
-
-
+  writeFileAsync("./db/db.json", JSON.stringify(noteData), function (err) {
+    res.end();
+  });
 });
 
 
