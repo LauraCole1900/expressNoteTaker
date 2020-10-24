@@ -65,7 +65,7 @@ app.post("/api/notes", function (req, res) {
 // compare note IDs to the selected ID
 // find index of selected ID
 // push remaining notes to array
-// since array writes the newly-empty object to the end of the array, splice last object in array
+// since new array writes the newly-empty object to the end of the array, splice last object in array
 // writeFile with new array
 app.delete("/api/notes/:id", function (req, res) {
   const deleteId = req.params.id;
