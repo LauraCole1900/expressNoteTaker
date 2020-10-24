@@ -34,6 +34,8 @@ app.get("/notes", function (req, res) {
 
 
 // GET `/api/notes` - Should read the `db.json` file and return all saved notes as JSON.
+// read db.json file
+// return notes from db.json as JSON
 app.get("/api/notes/", function (req, res) {
   readFileAsync("./db/db.json", "utf8").then(data => {
     JSON.parse(data);
@@ -68,7 +70,7 @@ app.post("/api/notes", function (req, res) {
 app.delete("/api/notes/:id", function (req, res) {
   const deleteId = req.params.id
   const newNoteData = req.body
-  const remainingNotes = notes.filter(noteObj => noteObj.id !== deletedNoteId)
+  const remainingNotes = noteData.filter(noteObj => noteObj.id !== deleteId)
   remainingNotes.push(newNoteData)
   writeFileAsync("./db/db.json", JSON.stringify(noteData), function (err) {
     res.end();
