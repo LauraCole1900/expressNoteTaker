@@ -36,7 +36,6 @@ app.get("/notes", function (req, res) {
 // read db.json file
 // parse
 // return parsed data as JSON
-// STILL NEED CATCH FOR EMPTY ARRAY
 app.get("/api/notes/", function (req, res) {
   readFileAsync("./db/db.json", "utf8").then(data => {
     const parsedData = JSON.parse(data);
@@ -65,14 +64,15 @@ app.post("/api/notes", function (req, res) {
 // ======== DELETE ========
 // compare note IDs to the selected ID
 // find index of selected ID
-// splice() object with selected ID
 // push remaining notes to array
+// since array writes the newly-empty object to the end of the array, splice last object in array
 // writeFile with new array
 app.delete("/api/notes/:id", function (req, res) {
   const deleteId = req.params.id;
   const newNoteData = req.body;
   const remainingNotes = noteData.filter(noteObj => noteObj.id !== deleteId);
   remainingNotes.push(newNoteData);
+  remainingNotes.splice((remainingNotes.length - 1), 1)
   res.json(remainingNotes);
   writeFileAsync("./db/db.json", JSON.stringify(remainingNotes), function (err) {
     res.end();
