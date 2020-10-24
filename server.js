@@ -32,10 +32,11 @@ app.get("/notes", function (req, res) {
 });
 
 
-
-// GET `/api/notes` - Should read the `db.json` file and return all saved notes as JSON.
+// ======== GET ========
 // read db.json file
-// return notes from db.json as JSON
+// parse
+// return parsed data as JSON
+// STILL NEED CATCH FOR EMPTY ARRAY
 app.get("/api/notes/", function (req, res) {
   readFileAsync("./db/db.json", "utf8").then(data => {
     const parsedData = JSON.parse(data);
@@ -45,9 +46,9 @@ app.get("/api/notes/", function (req, res) {
 });
 
 
-// POST `/api/notes` - Should receive a new note to save on the request body, add it to the `db.json` file, and then return the new note to the client.
-// when save button is clicked
+// ======== POST ========
 // grab new note
+// add ID to new note
 // write new note to notes database
 // return new note to be rendered to page
 app.post("/api/notes", function (req, res) {
@@ -58,21 +59,22 @@ app.post("/api/notes", function (req, res) {
   writeFileAsync("./db/db.json", JSON.stringify(noteData), function (err) {
     res.end();
   });
-  // readFileAsync("./db/db.json", "utf8").then(data => {
-  //   return [...data, newNote];
-  // }).then(updatedNotes => {
-  //   return writeFileAsync("./db/db.json", JSON.stringify(updatedNotes));
-  // }).then(() => res.json(newNote));
 });
 
 
-// DELETE `/api/notes/:id` - Should receive a query parameter containing the id of a note to delete. This means you'll need to find a way to give each note a unique `id` when it's saved. In order to delete a note, you'll need to read all notes from the `db.json` file, remove the note with the given `id` property, and then rewrite the notes to the `db.json` file.
+// ======== DELETE ========
+// compare note IDs to the selected ID
+// find index of selected ID
+// splice() object with selected ID
+// push remaining notes to array
+// writeFile with new array
 app.delete("/api/notes/:id", function (req, res) {
-  const deleteId = req.params.id
-  const newNoteData = req.body
-  const remainingNotes = noteData.filter(noteObj => noteObj.id !== deleteId)
-  remainingNotes.push(newNoteData)
-  writeFileAsync("./db/db.json", JSON.stringify(noteData), function (err) {
+  const deleteId = req.params.id;
+  const newNoteData = req.body;
+  const remainingNotes = noteData.filter(noteObj => noteObj.id !== deleteId);
+  remainingNotes.push(newNoteData);
+  res.json(remainingNotes);
+  writeFileAsync("./db/db.json", JSON.stringify(remainingNotes), function (err) {
     res.end();
   });
 });
