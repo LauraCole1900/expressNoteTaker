@@ -1,3 +1,8 @@
+:root {
+  --black: #000000;
+  --dkGray: #757575;
+}
+
 html, body {
   height: 100%;
   margin: 0;
@@ -16,7 +21,7 @@ html, body {
 }
 
 .note-textarea, .note-title {
-  color: #000000;
+  color: var(--black);
   width: 100%;
   outline: none;
   border: none;
@@ -35,7 +40,7 @@ html, body {
 }
 
 .note-title:read-only, .note-textarea:read-only {
-  color: #757575;
+  color: var(--dkGray);
 }
 
 .list-container .card {
