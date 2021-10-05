@@ -71,7 +71,7 @@ This project is intended to be used for note-taking and -saving.
 
 ## Technologies Used
 
-Node.js, Express
+[![Node.js](https://img.shields.io/badge/built%20with-Node.js-3c873a)](https://nodejs.org/en/) [![Express.js](https://img.shields.io/badge/built%20with-Express.js-303030)](https://expressjs.com/)
 
 ## Tests
 
